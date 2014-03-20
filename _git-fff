@@ -1,0 +1,8 @@
+#compdef git-fff
+#description fast-forward a branch without checking out (fast fast-forward)
+
+if (( CURRENT > 2 )); then
+  _arguments -w -C -S -s '*: :__git_committishs'
+else
+  _arguments -w -C -S -s '*: :__git_ignore_line_inside_arguments __git_branch_names'
+fi
