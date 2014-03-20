@@ -23,7 +23,9 @@ die () {
 }
 
 usage() {
-	die "Usage: git fff <branch> <committish-to-merge>"
+	die "Usage: git fff <branch> [<committish-to-merge>]
+
+<committish-to-merge> defaults to HEAD."
 }
 
 do_fff() {
@@ -67,5 +69,6 @@ shift $((OPTIND-1))
 
 case $# in
 	2 ) do_fff "$1" "$2";;
+	1 ) do_fff "$1" 'HEAD';;
 	* ) usage
 esac
